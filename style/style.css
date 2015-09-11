@@ -1,0 +1,185 @@
+@charset "utf-8";
+/* all-state */
+::selection {color: #fff;background-color:#3389d4;}   
+::-moz-selection {color: #fff;background-color:#3389d4;}  
+html {overflow-y:scroll; background:url(../images/bg.jpg) repeat-x fixed top center;}
+body {margin:0; padding:0; font-size:12px; font-family:"微软雅黑","黑体", arial, sans-serif;background-size:cover; height:100%; overflow-y:auto;}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;}
+table,td,tr,th{font-size:12px;border:0px;}
+img{ border:none;}
+li{list-style-type:none;}
+ol,ul {list-style:none;}
+h3,h4,h5,h6{font-size:14px; font-weight:normal;}
+address,cite,code,em,th {font-weight:normal; font-style:normal;}
+a:link {
+	color: #000;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: none;
+	color:#3389d4;
+}
+.clear{
+	clear:both;}
+.f_left{
+	float:left;}
+.f_right{
+	float:right;}
+.auto{
+	margin:0 auto;}
+.w1000{
+	width:1000px;}
+.mt5{
+	margin-top:5px;}
+.mt10{
+	margin-top:10px;}
+.top_bar{
+	width:100%;
+	top:-50px;
+	z-index:2000;
+	position:fixed;height:50px;background:#333;}
+.txt_bar{
+	color:#FFF;
+	font-size:16px;
+	line-height:50px;}
+.title_bg{
+	color:#FFF !important;
+	background:#C81522 !important;}
+.title_bg td{
+	border-color:#9d9d9d !important;}
+.logo_bar{
+	width:293px;
+	height:50px;
+	font-size:18px;
+	line-height:50px;
+	color:#FFFFCC;}
+.s_table{
+	table-layout:auto;
+	background:#fff;
+	border-collapse:collapse;}
+.s_table td{
+	border:1px solid #ccc;
+	font-size:13px;
+	height: 32px;
+	line-height: 32px;
+	white-space:pre;
+	padding:0px 10px 0 10px;}
+.mouse_hover:hover{
+	background:#FFC !important;}
+#show_box{
+	width:1290px;
+	margin:0 auto;
+	margin-top:80px;}
+#now_page{display:none;}
+#cc_ss_type{display:none;}
+.page_bar{
+	margin-top:20px;
+	margin-bottom:80px;
+	margin-right:84px;}
+#page_box{
+	position:relative;
+	display:none;}
+#num_box{
+	position: absolute;
+    top: 21px;
+    right: -18px;
+	width:100px;
+	color:#FFF;
+	font-size:17px;}
+#nav li{
+	cursor:pointer;
+	width:60px;
+	height:24px;
+	border:1px solid #656565;
+	margin-right:10px;
+	color:#000;
+	background:#c4c4c4;
+	margin-bottom:10px;
+	text-align:center;
+	line-height:24px;
+	font-size:13px;
+	-moz-border-radius: 5px;   
+    -webkit-border-radius: 5px;   
+    border-radius:5px;       
+	float:left;}
+#nav li:hover{
+	background:#FFFFCC;}
+.nav_click{
+	border-color:#000 !important;
+	color:#6F6666 !important;
+	background:#FCFCFC !important;}
+#shadow{
+	width:100%;
+	height:2000px;
+	position:fixed;
+	background:#000;
+	opacity:0.4;
+	display:none;
+	z-index:1000;
+	}
+.task_name:hover{
+	color:red;}
+#add_panel,#change_panel{
+	border-radius: 15px;
+    display: none;
+    color: #FFF;
+    opacity: 1.0;
+    width: 664px;
+    height: 364px;
+    position: fixed;
+    top: 17%;
+    left: 50%;
+    margin-left: -332px;
+    background: #5F718B;
+	z-index:3000;
+    border: 2px solid #CDE8FF;
+	-webkit-box-shadow: 0 0 40px 4px #323436;
+	-moz-box-shadow: 0 0 40px 4px #323436;
+	box-shadow: 0 0 40px 4px #323436;}
+#add_panel ul,#change_panel ul{
+	margin:10px 0 0 30px;}
+#add_panel li,#change_panel li{
+	font-size:14px;
+	float:left;
+	height:28px;
+	margin-right:10px;}
+.inner_close {
+    background: url(/images/close.png) no-repeat;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    cursor: pointer;
+}
+.title_add{
+	text-align:right;
+	width:100px;}
+input{
+	padding-left:4px;height:20px;
+	line-height:20px;
+	vertical-align:text-bottom;}
+.btn{
+	cursor:pointer;
+	height:28px;
+	border:2px solid #31AF2C;
+	margin-right:10px;
+	color:#FFF;
+	background:#0D9622;
+	text-align:center;
+	line-height:24px;
+	font-size:13px;
+	-moz-border-radius: 5px;   
+    -webkit-border-radius: 5px;   
+    border-radius:5px;
+	-webkit-box-shadow: 0 0 1px 0px #323436;
+	-moz-box-shadow: 0 0 1px 0px #323436;
+	box-shadow: 0 0 1px 0px #323436;}
+.btn:hover{
+	color:#000;
+	border-color:#FC0;
+	background:#FFFFCC;}
