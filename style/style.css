@@ -123,13 +123,17 @@ a:hover {
 	}
 .task_name:hover{
 	color:red;}
-#add_panel,#change_panel{
+.can_ok,.can_over{
+	cursor:pointer;}
+.can_ok:hover{
+	color:#F30;}
+.can_over:hover{
+	color:#F30;}
+#add_panel,#change_panel,#people_panel,#over_panel,#ok_panel{
 	border-radius: 15px;
     display: none;
     color: #FFF;
     opacity: 1.0;
-    width: 664px;
-    height: 364px;
     position: fixed;
     top: 17%;
     left: 50%;
@@ -140,6 +144,15 @@ a:hover {
 	-webkit-box-shadow: 0 0 40px 4px #323436;
 	-moz-box-shadow: 0 0 40px 4px #323436;
 	box-shadow: 0 0 40px 4px #323436;}
+#add_panel,#change_panel{
+	width: 664px;
+    height: 364px;
+}
+#people_panel,#over_panel,#ok_panel{
+	width:300px;
+	height:160px;
+    margin-left: -150px;
+}
 #add_panel ul,#change_panel ul{
 	margin:10px 0 0 30px;}
 #add_panel li,#change_panel li{
@@ -166,10 +179,7 @@ input{
 .btn{
 	cursor:pointer;
 	height:28px;
-	border:2px solid #31AF2C;
 	margin-right:10px;
-	color:#FFF;
-	background:#0D9622;
 	text-align:center;
 	line-height:24px;
 	font-size:13px;
@@ -179,7 +189,63 @@ input{
 	-webkit-box-shadow: 0 0 1px 0px #323436;
 	-moz-box-shadow: 0 0 1px 0px #323436;
 	box-shadow: 0 0 1px 0px #323436;}
+.green_btn{
+	border:2px solid #31AF2C;
+	color:#FFF;
+	background:#0D9622;}
 .btn:hover{
 	color:#000;
 	border-color:#FC0;
 	background:#FFFFCC;}
+.red_btn{
+	border: 2px solid #CE6B48;
+    color: #FFF;
+    background: #B92908;}
+.blue_btn{
+	border: 2px solid #6894CC;
+    color: #FFF;
+    background: #22539D;}
+.title_panel{
+	text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.row_panel{
+	margin:0 auto;
+	width:180px;
+	margin-bottom: 10px;
+}
+.ml10{
+	margin-left: 10px;
+}
+#red_alert_panel,#green_alert_panel{
+	display: none;
+	-moz-border-radius: 50px;   
+    -webkit-border-radius: 50px;   
+    border-radius:50px;  
+	-webkit-box-shadow: 0 0 14px 0px #323436;
+	-moz-box-shadow: 0 0 14px 0px #323436;
+	box-shadow: 0 0 14px 0px #323436;
+    width: 300px;
+    height: 80px;
+    top: 20%;
+    left: 50%;
+    margin-left: -150px;
+    position: fixed;
+    z-index: 10000;
+}
+#red_alert_panel{
+    background: #A1111B;
+    border: 2px solid #FF9B9E;
+}
+#green_alert_panel{
+    background: #11A16C;
+    border: 2px solid #A2FF9B;
+}
+.alert_txt{
+	font-size: 26px;
+    text-align: center;
+    color: #FFF;
+    line-height: 80px;
+}

@@ -3,7 +3,7 @@
 	require_once("db.php");
 //查询人员
 	$db=new DB();
-	$sql="select * from people;";
+	$sql="select * from people order by id desc;";
 	$res=$db->execute($sql);
 	$smarty->assign("resu",$res);
 //分页搜索+切换分类
@@ -20,6 +20,8 @@
  			$sql = "select *,from_unixtime(t_start,'%Y-%m-%d')as t_start from tdl where over<>'进行中...' and ok='未审核' order by id desc limit {$start},{$end};";
  		}else if($ss_type=="n_all"){
  			$sql = "select *,from_unixtime(t_start,'%Y-%m-%d')as t_start from tdl order by id desc limit {$start},{$end};";
+ 		}else if($ss_type=="n_ok"){
+ 			$sql = "select *,from_unixtime(t_start,'%Y-%m-%d')as t_start from tdl where ok<>'未审核' order by id desc limit {$start},{$end};";
  		}
  		$res = $db->execute($sql);
 		echo json_encode($res);
@@ -36,6 +38,8 @@
  			$sql = "select count(1) from tdl where over<>'进行中...' and ok='未审核';";
  		}else if($ss_type=="n_all"){
  			$sql = "select count(1) from tdl;";
+ 		}else if($ss_type=="n_ok"){
+ 			$sql = "select count(1) from tdl where ok<>'未审核';";
  		}
 		$res = $db->execute($sql);
 		foreach ($res as $value); 
@@ -43,35 +47,6 @@
 		echo $all_num;
 		return false;
 	}
-/*if(isset($_POST['start_time'])){
-		$start=$_POST['start_time'];
-		$end=$_POST['end_time'];
-		$t_t=strtotime($start);
-		$e_t=strtotime($end);
-		$e_t=$e_t+86400;//不能同时取相等的两天
-		if($start=='' or $end==''){
-			echo "<script>alert('亲，请选定时间区间！');window.location='show.php';</script>";	
-		}else if($t_t>$e_t){
-				echo "<script>alert('想玩穿越？没门！');window.location='show.php';</script>";	
-			}else 
-		{	
-			$db=new DB('localhost','root','');
-			$sql="select *,from_unixtime(t_start,'%Y-%m-%d')as t_start from tdl where t_start<'$e_t' and t_start>='$t_t' order by id desc;";
-			$res=$db->execute($sql);
-			$smarty->assign("resu1",$res);
-		}
-}
-//检索
-if(isset($_POST['s_who'])){
-		$s_who=$_POST['s_who'];
-		$db=new DB('localhost','root','');
-			$sql="select *,from_unixtime(t_start,'%Y-%m-%d')as t_start from tdl where who like '%$s_who%' order by id desc;";
-			$res=$db->execute($sql);
-			$smarty->assign("resu1",$res);
-			$sql="select count(1) from tdl;";
-			$res=$db->execute($sql);
-			$smarty->assign("total",$res);
-	}*/
 //增加任务
 if(isset($_POST['task'])){
 	$m_task=$_POST['task'];
@@ -84,8 +59,6 @@ if(isset($_POST['task'])){
 	$m_ok="未审核";
 	$m_other="-";
 //文件上传
-
- //由文件上传导致的错误,终止程序执行 ，重新上传
  if ($_FILES['file']['error'] > 0) 
     {echo "***** 没有上传文件 *****";}
  try
@@ -143,6 +116,44 @@ if(isset($_POST['c_task'])){
 	$sql="update tdl set task='$task',weight='$weight',need='$need',aim='$aim',who='$who',other='$other' where id='$id';";
 	$res=$db->execute($sql);
 	echo "<script>alert('修改成功！');window.location='index.php';</script>";
+	return false;
+}
+//添加人员
+if(isset($_POST['add_people'])){
+	$new_people=$_POST['add_people'];
+	$db=new DB();
+	$sql="insert into people (name)values('{$new_people}');";
+	$res=$db->execute($sql);
+	echo "ok";
+	return false;
+}
+//删除人员
+if(isset($_POST['del_people'])){
+	$people_id=$_POST['del_people'];
+	$db=new DB();
+	$sql="delete from people where id='{$people_id}';";
+	$res=$db->execute($sql);
+	echo "ok";
+	return false;
+}
+//提交完成
+if(isset($_POST['can_over'])){;
+	$id=$_POST['can_over'];
+	$new_time=date("Y-m-d", time());
+	$db=new DB();
+	$sql="update tdl set over='$new_time' where id='$id';";
+	$res=$db->execute($sql);
+	echo "ok";
+	return false;
+}
+//审核完成
+if(isset($_POST['can_ok'])){;
+	$id=$_POST['can_ok'];
+	$new_time=date("Y-m-d", time());
+	$db=new DB();
+	$sql="update tdl set ok='$new_time' where id='$id';";
+	$res=$db->execute($sql);
+	echo "ok";
 	return false;
 }
 //Smarty
