@@ -1,0 +1,16 @@
+create database anto_tdl;
+use anto_tdl;
+create table tdl(
+id int(11) auto_increment primary key,
+task varchar(200),
+aim varchar(20),
+weight varchar(4),
+need varchar(10),
+file varchar(80),
+who varchar(200),
+t_start int(11),
+over varchar(14),
+ok varchar(14),
+other varchar(80))engine=InnoDB default charset'utf8';
+create table people(id int(11) auto_increment primary key,name varchar(20))engine=InnoDB default charset'utf8';
+

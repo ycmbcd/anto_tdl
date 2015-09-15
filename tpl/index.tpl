@@ -1,6 +1,7 @@
 {include file="head.tpl"}
 <body>
 <div id="shadow"></div>
+<div id="show_cmplt"></div>
 <div class="top_bar">
 <div class="f_left logo_bar">
 	<div class="f_left"><img src="../images/anto.jpg" height="50" /></div><div class="f_right">上海安藤国际贸易有限公司</div>

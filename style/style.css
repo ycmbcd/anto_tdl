@@ -249,3 +249,16 @@ input{
     color: #FFF;
     line-height: 80px;
 }
+#show_cmplt{
+	position: fixed;
+	z-index: 20000;
+	width:600px;
+	height:30px;
+	text-align: center;
+	top:10px;
+	left: 50%;
+	margin-left: -300px;
+	line-height: 30px;
+	color: #cf0;
+	font-size: 16px;
+}
